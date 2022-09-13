@@ -13,9 +13,9 @@
 **E-mail**：ydsoon02@gmail.com\
 **相關技能**：Python，WordPress，，Node.js,Java，Arduino，C++
 ***
-****Note****
+# Note
 ***
-**Homework**
+# Homework
 ***
-**Project**
+# Project
 
