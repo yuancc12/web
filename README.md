@@ -1,6 +1,6 @@
 # 111-1網際網路概論
 # 目錄
-+ [簡介](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
++ 簡介
 + [自我介紹](https://github.com/yuancc12/web/blob/main/README.md#%E8%87%AA%E6%88%91%E4%BB%8B%E7%B4%B9)
 + [Note](https://github.com/yuancc12/web#note)
 + [Homework](https://github.com/yuancc12/web#homework)
