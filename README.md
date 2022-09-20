@@ -15,9 +15,11 @@
 ***
 # Note
 ***
-# Homework\
+# Homework
++ [製作創立Github網站](https://github.com/yuancc12/web/)\
++ [建立靜態網頁](https://yuancc12.github.io/web/mypages/)
 ***
-# Project\
+# Project
 
 # 課堂PPT
 + [week1](https://docs.google.com/presentation/d/e/2PACX-1vQeq6j0QLtkRYz4qBJMG4KOC34eEWbWHJlhfWm4eaZqg_PfCynecuaul_2zMMc_7muZ5qFQFI_MAc3z/pub?start=false&loop=false&delayms=3000&slide=id.p)
