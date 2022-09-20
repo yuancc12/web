@@ -7,7 +7,7 @@
 **上課地點：TA509**
 ***
 # 自我介紹
-**姓名**：孫源智\
+**姓名**：[孫源智](https://yuancc12.github.io/web/mypages/)
 **學校**：國立臺灣師範大學\
 **系級**：科技系二年級\
 **E-mail**：ydsoon02@gmail.com\
@@ -19,3 +19,5 @@
 ***
 # Project
 
+#課堂PPT
+[week](https://docs.google.com/presentation/d/e/2PACX-1vQeq6j0QLtkRYz4qBJMG4KOC34eEWbWHJlhfWm4eaZqg_PfCynecuaul_2zMMc_7muZ5qFQFI_MAc3z/pub?start=false&loop=false&delayms=3000&slide=id.p)
