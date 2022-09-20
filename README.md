@@ -2,10 +2,10 @@
 # 目錄
 + [簡介](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
 + [自我介紹](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
-+ [Note](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
++ [Note](https://github.com/yuancc12/web#note)
 + [Homework](https://github.com/yuancc12/web#homework)
-+ [Project](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
-+ [課堂PPT](https://github.com/yuancc12/web/blob/main/README.md#%E7%B0%A1%E4%BB%8B)
++ [Project](https://github.com/yuancc12/web/blob/main/README.md#project)
++ [課堂PPT](https://github.com/yuancc12/web/blob/main/README.md#%E8%AA%B2%E5%A0%82ppt)
 
 # 簡介
 **授課教師:蔡芸琤教師**
