@@ -16,7 +16,7 @@
 # Note
 ***
 # Homework
-+ [製作創立Github網站](https://github.com/yuancc12/web/)\
++ [製作創立Github網站](https://github.com/yuancc12/web/)
 + [建立靜態網頁](https://yuancc12.github.io/web/mypages/)
 ***
 # Project
