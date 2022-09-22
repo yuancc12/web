@@ -21,13 +21,14 @@
 **E-mail**：ydsoon02@gmail.com\
 **相關技能**：Python，WordPress，，Node.js,Java，Arduino，C++
 ***
-# Note
-***
-# Homework
+# 練習專區
 + [製作創立Github網站](https://github.com/yuancc12/web/)
 + [建立靜態網頁](https://yuancc12.github.io/web/mypages/)
 ***
-# Project
+# 作業專區
++ [作業一](https://youtu.be/0YGcsn_BD7o)
+***
+# 專題專區
 
 # 課堂PPT
 + [week1](https://docs.google.com/presentation/d/e/2PACX-1vQeq6j0QLtkRYz4qBJMG4KOC34eEWbWHJlhfWm4eaZqg_PfCynecuaul_2zMMc_7muZ5qFQFI_MAc3z/pub?start=false&loop=false&delayms=3000&slide=id.p)
