@@ -16,7 +16,9 @@
 ***
 # 自我介紹
 **姓名**：[孫源智](https://yuancc12.github.io/web/mypages/)\
-**學校**：國立臺灣師範大學\
+**學校**：[國立臺灣師範大學](https://www.ntnu.edu.tw/)\
+**主修**：[科技應用與人力資源發展學系](https://www.tahrd.ntnu.edu.tw/)\
+**雙主修**：[學習科學學士學位學程](https://www.upls.ntnu.edu.tw/)\
 **系級**：科技系二年級\
 **E-mail**：ydsoon02@gmail.com\
 **相關技能**：Python，WordPress，，Node.js,Java，Arduino，C++
