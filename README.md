@@ -16,20 +16,24 @@
 ***
 # 自我介紹
 **姓名**：[孫源智](https://yuancc12.github.io/web/mypages/)\
-**學校**：國立臺灣師範大學\
-**系級**：科技系二年級\
+**學校**：[國立臺灣師範大學](https://www.ntnu.edu.tw/)\
+**主修**：[科技應用與人力資源發展學系](https://www.tahrd.ntnu.edu.tw/)\
+**雙主修**：[學習科學學士學位學程](https://www.upls.ntnu.edu.tw/)\
+**系級**：科技系二年級乙班\
 **E-mail**：ydsoon02@gmail.com\
 **相關技能**：Python，WordPress，，Node.js,Java，Arduino，C++
 ***
-# Note
-***
-# Homework
+# 練習專區
 + [製作創立Github網站](https://github.com/yuancc12/web/)
 + [建立靜態網頁](https://yuancc12.github.io/web/mypages/)
 ***
-# Project
+# 作業專區
++ [作業一](https://youtu.be/0YGcsn_BD7o)
+***
+# 專題專區
 
 # 課堂PPT
 + [week1](https://docs.google.com/presentation/d/e/2PACX-1vQeq6j0QLtkRYz4qBJMG4KOC34eEWbWHJlhfWm4eaZqg_PfCynecuaul_2zMMc_7muZ5qFQFI_MAc3z/pub?start=false&loop=false&delayms=3000&slide=id.p)
 + [week2](https://docs.google.com/presentation/d/e/2PACX-1vTDvYn3QV46gLMrZyRTLcVC_ZLSExGKp2NKSmynOjCl1TkSpo3l3objKNUJzvgniLzss6jtdrtxsPf4/pub?start=false&loop=false&delayms=3000&slide=id.p)
 + [week3](https://docs.google.com/presentation/d/e/2PACX-1vSZo61VUAGVMwmapSMd-GN0wBLRQyTf943MTnphSZR-33nG1cN6LToABqfef0JRq9yZYs-TRp_3zFE9/pub?start=false&loop=false&delayms=3000&slide=id.p)
++ [week4](https://docs.google.com/presentation/d/e/2PACX-1vRzFbbpzLWLBeQLZibkd6VS3W5pjD9WhoEZd-EQav7x_2bh8nQs3owQPv0Ej-oqlCXYWy4RufLkMicY/pub?start=false&loop=false&delayms=3000&slide=id.p)
