@@ -21,7 +21,7 @@
 **雙主修**：[學習科學學士學位學程](https://www.upls.ntnu.edu.tw/)\
 **系級**：科技系二年級乙班\
 **E-mail**：ydsoon02@gmail.com\
-**相關技能**：Python，WordPress，，Node.js,Java，Arduino，C++
+**相關技能**：Python，WordPress(UI)，，Node.js,Java，Arduino，C++
 ***
 # 練習專區
 + [製作創立Github網站](https://github.com/yuancc12/web/)
