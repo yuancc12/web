@@ -28,7 +28,7 @@
 + [建立靜態網頁](https://yuancc12.github.io/web/mypages/)
 ***
 # 作業專區
-+ [作業一](https://youtu.be/0YGcsn_BD7o)
++ [作業一](https://youtu.be/O3XPGp4-gm4)
 ***
 # 專題專區
 
