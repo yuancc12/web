@@ -21,7 +21,7 @@
 **雙主修**：[學習科學學士學位學程](https://www.upls.ntnu.edu.tw/)\
 **系級**：科技系二年級乙班\
 **E-mail**：ydsoon02@gmail.com\
-**相關技能**：Python，WordPress(UI)，，Node.js,Java，Arduino，C++
+**相關技能**：Python，WordPress(UI),Voxedit，Node.js,Java，Arduino，C++
 ***
 # 練習專區
 + [製作創立Github網站](https://github.com/yuancc12/web/)
@@ -39,3 +39,4 @@
 + [week3](https://docs.google.com/presentation/d/e/2PACX-1vSZo61VUAGVMwmapSMd-GN0wBLRQyTf943MTnphSZR-33nG1cN6LToABqfef0JRq9yZYs-TRp_3zFE9/pub?start=false&loop=false&delayms=3000&slide=id.p)
 + [week4](https://docs.google.com/presentation/d/e/2PACX-1vRzFbbpzLWLBeQLZibkd6VS3W5pjD9WhoEZd-EQav7x_2bh8nQs3owQPv0Ej-oqlCXYWy4RufLkMicY/pub?start=false&loop=false&delayms=3000&slide=id.p)
 + [week5](https://docs.google.com/presentation/d/e/2PACX-1vSm19M_AdUOrFG0hGHyuTWdvjHENudxSTDLgQpDghG7HGsW9ljLiPpXhahnFcqS4xU1mbDcXeFk-PMA/pub?start=false&loop=false&delayms=3000&slide=id.p)
++ [week6](https://docs.google.com/presentation/d/e/2PACX-1vQwXzwsXpz6GtsB2y1adorvi6a0OD3nXORh2g2nnER3YYPWsPKympVULtEOnMLSB4HZOcnsxnmdB1hg/pub?start=false&loop=false&delayms=3000&slide=id.g14b2b9fd54c_0_115)
