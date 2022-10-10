@@ -9,9 +9,10 @@ const db=mysql.createConnection({
     user:"root",
     host:"localhost",
     password:"20020416syc",
-    database:"employeeSystem",
+    database:"employeesystem",
 });
-app.post("/create",(req,res) =>{
+app.post("/create", (req, res) =>
+ {
     console.log(name)
     const name=req.body.name;
     const age=req.body.age;
