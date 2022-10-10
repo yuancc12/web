@@ -12,6 +12,7 @@ const db=mysql.createConnection({
     database:"employeeSystem",
 });
 app.post("/create",(req,res) =>{
+    console.log(name)
     const name=req.body.name;
     const age=req.body.age;
     const country=req.body.country;
