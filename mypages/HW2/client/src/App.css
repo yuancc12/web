@@ -31,3 +31,9 @@ input {
  button:hover {
   cursor: pointer;
 }
+.employess{
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  width:100%;
+}
