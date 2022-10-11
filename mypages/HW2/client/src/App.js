@@ -1,160 +1,81 @@
-import "./App.css";
-import { useState } from "react";
+
+import { useState } from 'react';
+import './App.css';
 import Axios from "axios";
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 function App() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [country, setCountry] = useState("");
-  const [position, setPosition] = useState("");
-  const [wage, setWage] = useState(0);
-
-  const [newWage, setNewWage] = useState(0);
-
-  const [employeeList, setEmployeeList] = useState([]);
-
-  const addEmployee = () => {
-    Axios.post("http://localhost:3001/create", {
-      name: name,
-      age: age,
-      country: country,
-      position: position,
-      wage: wage,
-    }).then(() => {
-      setEmployeeList([
-        ...employeeList,
+  const[name,setname]=useState("");
+  const[age,setage]=useState(0);
+  const[position,setposition]=useState("");
+  const[country,setcountry]=useState("");
+  const[wage,setwage]=useState(0);
+  const[employeelist,setemployeelist]=useState([]);
+  const addEmployee=()=>{
+    Axios.post("http://localhost:3001/create",
+    {
+      name:name,
+      age:age,
+      country:country,
+      position:position,
+      wage:wage,
+    }).then(() =>{
+      setemployeelist([
+        ...employeelist,
         {
-          name: name,
-          age: age,
-          country: country,
-          position: position,
-          wage: wage,
-        },
-      ]);
+          name:name,
+          age:age,
+          country:country,
+          position:position,
+          wage:wage,
+        }]);
     });
   };
-
-  const getEmployees = () => {
-    Axios.get("http://localhost:3001/employees").then((response) => {
-      setEmployeeList(response.data);
-    });
-  };
-
-  const updateEmployeeWage = (id) => {
-    Axios.put("http://localhost:3001/update", { wage: newWage, id: id }).then(
-      (response) => {
-        setEmployeeList(
-          employeeList.map((val) => {
-            return val.id == id
-              ? {
-                  id: val.id,
-                  name: val.name,
-                  country: val.country,
-                  age: val.age,
-                  position: val.position,
-                  wage: newWage,
-                }
-              : val;
-          })
-        );
-      }
-    );
-  };
-
-  const deleteEmployee = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
-      setEmployeeList(
-        employeeList.filter((val) => {
-          return val.id != id;
-        })
-      );
-    });
-  };
-
+const getemployees=()=>{
+  Axios.get("http://localhost:3001/employees").then((response)=>{
+    setemployeelist(response.data)
+  });
+};
   return (
     <div className="App">
       <div className="information">
-        <label>Name:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-        />
-        <label>Age:</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setAge(event.target.value);
-          }}
-        />
-        <label>Country:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setCountry(event.target.value);
-          }}
-        />
-        <label>Position:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setPosition(event.target.value);
-          }}
-        />
-        <label>Wage (year):</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setWage(event.target.value);
-          }}
-        />
-        <button onClick={addEmployee}>Add Employee</button>
-      </div>
-      <div className="employees">
-        <button onClick={getEmployees}>Show Employees</button>
-
-        {employeeList.map((val, key) => {
-          return (
-            <div className="employee">
-              <div>
-                <h3>Name: {val.name}</h3>
-                <h3>Age: {val.age}</h3>
-                <h3>Country: {val.country}</h3>
-                <h3>Position: {val.position}</h3>
-                <h3>Wage: {val.wage}</h3>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="2000..."
-                  onChange={(event) => {
-                    setNewWage(event.target.value);
-                  }}
-                />
-                <button
-                  onClick={() => {
-                    updateEmployeeWage(val.id);
-                  }}
-                >
-                  {" "}
-                  Update
-                </button>
-
-                <button
-                  onClick={() => {
-                    deleteEmployee(val.id);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
+        <label>name</label>
+        <input type="text" onChange={(event) => {
+        setname(event.target.value)
+        }}/>
+        <label>age</label>
+        <input type="number" onChange={(event) => {
+        setage(event.target.value)
+        }}/>
+        <label>position</label>
+        <input type="text" onChange={(event) => {
+        setposition(event.target.value)
+        }}/>
+        <label>country</label>
+        <input type="text" onChange={(event) => {
+        setcountry(event.target.value)
+        }}/>
+        <label>wage</label>
+        <input type="number" onChange={(event) => {
+        setwage(event.target.value)
+        }}/>
+        <button onClick={addEmployee} >Add</button>
+        </div>
+       
+        <div className='employees'>
+        <button onClick={getemployees}>show employees</button>
+        {employeelist.map((val,key)=>{
+        return <div className='employee'>
+           <h3>Name:{val.name}</h3>
+           <h3>age:{val.age}</h3>
+           <h3>country:{val.country}</h3>
+           <h3>position:{val.position}</h3>
+           <h3>wage：{val.wage}</h3>
+           </div>
         })}
-      </div>
+        </div>
     </div>
   );
-}
+};
 
 export default App;

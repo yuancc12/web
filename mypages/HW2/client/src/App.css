@@ -31,9 +31,24 @@ input {
  button:hover {
   cursor: pointer;
 }
-.employess{
-  display:flex;
-  align-items:center;
+
+.employees {
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  width:100%;
+  width: 100%;
+}
+
+.employee {
+  width: 700px;
+  height: auto;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.employee h3 {
+  margin: 20px;
 }
