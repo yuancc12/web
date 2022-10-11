@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import './App.css';
 import Axios from "axios";
+import React from 'react';
+import ReactDOM from 'react-dom';
 function App() {
   const[name,setname]=useState("");
   const[age,setage]=useState(0);
