@@ -29,7 +29,7 @@
 ***
 # 作業專區
 + [作業一:GITHUB操作說明與靜態網頁設計](https://youtu.be/O3XPGp4-gm4)\
-+ 作業二：Web2
++ [作業二：Web2 CRUD網頁熒幕操作說明](https://youtu.be/Geb7UKWVTiU)\
 ***
 # 專題專區
 
