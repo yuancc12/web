@@ -30,6 +30,7 @@
 # 作業專區
 + [作業一:GITHUB操作說明與靜態網頁設計](https://youtu.be/O3XPGp4-gm4)
 + [作業二：Web2 CRUD網頁熒幕操作說明](https://youtu.be/Geb7UKWVTiU)
++ [作業三：S3簡介與EC2簡介熒幕操作說明](https://www.youtube.com/playlist?list=PLv7HYqt9ay_frI-YG2XDSOQrRZT2WV9Oh)
 ***
 # 專題專區
 
