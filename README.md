@@ -45,4 +45,4 @@
 + [week8](https://docs.google.com/presentation/d/e/2PACX-1vQy5r-MJNlBQzTtEEuDssJh2BOOOT6Yh2dDxdSHtDF2BtdXAgY4GECs_48o7JvCpIVVyw4Kxz3bwlRz/pub?start=false&loop=false&delayms=3000&slide=id.p)
 
 # 論壇心得感想
-+ [教育元宇宙](https://docs.google.com/document/d/1MMt8_OskusdHXYkOMjMLFrJBC9Qs6KITZJzS_R0Q3iQ/edit）
++ [教育元宇宙](https://docs.google.com/document/d/1MMt8_OskusdHXYkOMjMLFrJBC9Qs6KITZJzS_R0Q3iQ/edit)
