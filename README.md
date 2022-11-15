@@ -32,6 +32,7 @@
 + [作業二：Web2 CRUD網頁熒幕操作說明](https://youtu.be/Geb7UKWVTiU)
 + [作業三：S3簡介與EC2簡介熒幕操作說明](https://www.youtube.com/playlist?list=PLv7HYqt9ay_frI-YG2XDSOQrRZT2WV9Oh)
 + [作業四：IAM簡介與VPC簡介熒幕操作說明](https://www.youtube.com/playlist?list=PLv7HYqt9ay_frI-YG2XDSOQrRZT2WV9Oh)
++ [作業五：Lab3,Lab4與Lab7熒幕操作說明]（https://youtu.be/qbHJHvOFwVY）
 ***
 # 專題專區
 
