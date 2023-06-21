@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "Nodejs_web2",
+			"group": "clean",
+			"problemMatcher": [],
+			"label": "npm: install - Nodejs_web2",
+			"detail": "install dependencies from package"
+		}
+	]
+}
