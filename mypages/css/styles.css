@@ -11508,3 +11508,24 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+.circle-image {
+  width: 200px; /* 设置容器的宽度和高度 */
+  height: 200px;
+  border-radius: 50%; /* 将容器形状设置为圆形 */
+  overflow: hidden; /* 隐藏超出容器尺寸的部分 */
+  margin-left: 80px;
+}
+
+.circle-image img {
+  width: 100%; /* 缩小图片的宽度为容器的宽度 */
+  height: 100%; /* 根据宽度等比例调整图片的高度 */
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 设置容器的高度，这里使用视口高度作为示例 */
+}
+
