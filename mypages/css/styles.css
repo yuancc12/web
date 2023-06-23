@@ -11514,7 +11514,7 @@ html {
   height: 200px;
   border-radius: 50%; /* 将容器形状设置为圆形 */
   overflow: hidden; /* 隐藏超出容器尺寸的部分 */
-  margin-left: 80px;
+ 
 }
 
 .circle-image img {
