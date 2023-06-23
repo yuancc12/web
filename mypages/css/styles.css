@@ -11501,8 +11501,6 @@ html {
 }
 
 .circle-image {
-  width: 200px; /* 设置容器的宽度和高度 */
-  height: 200px;
   border-radius: 50%; /* 将容器形状设置为圆形 */
   overflow: hidden; /* 隐藏超出容器尺寸的部分 */
   
