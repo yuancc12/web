@@ -11529,3 +11529,83 @@ html {
   height: 100vh; /* 设置容器的高度，这里使用视口高度作为示例 */
 }
 
+.carousel-inner{
+  width: 100%;
+  height: 100vh;
+}
+.carousel-item{
+  width: 100%;
+  height: 100%;
+}
+.carousel-item img, .carousel-item video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+      .headfronteng{
+          font-family: 'Lobster', cursive;
+      }
+      @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+      .headfrontchn{
+          font-family:'Noto Sans TC',sans-serif;
+      }
+      .flex-container {
+          display: flex;
+          justify-content: space-between; /* 调整区块之间的空间 */
+      }
+      .section {
+          flex: 1;
+          margin: 0 10px; /* 调整左右空间的大小 */
+      }
+      .box img {
+          max-width: 100%;
+          max-height: 100%;
+      }
+      .box{
+          border: 1px solid black;
+          border-radius: 10px;
+          overflow: hidden;
+          filter: grayscale(100%);
+          transition: .5s;
+      }
+      .box:hover{
+          filter: grayscale(0);
+          cursor: pointer;
+          background-color:#6fc3a7;;
+      }
+      
+      .resume-section {
+          display: flex;
+      }
+
+      .experience, .position, .research {
+          flex: 1;
+          padding: 20px;
+      }
+
+      .experience h2, .position h2, .research h2 {
+          text-align: center; 
+      }
+
+      .experience ul, .position ul {
+          list-style: none;
+          padding: 0;
+      }
+
+      .research p {
+          text-align: justify;
+      }
+
+      h2.underline {
+          border-bottom: 1px solid black !important;
+      }
+      
+      h2.dashed-border {
+          border-left: 1px dashed black;
+          border-right: 1px dashed black;
+      }
+
+      .backgroundcolor {
+          background-color: #f1f1f1; /* 设置背景颜色 */
+          padding: 20px; /* 添加一些内边距，以使内容与背景之间有一定的间距 */
+      }
