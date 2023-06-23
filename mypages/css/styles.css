@@ -11505,7 +11505,7 @@ html {
   height: 200px;
   border-radius: 50%; /* 将容器形状设置为圆形 */
   overflow: hidden; /* 隐藏超出容器尺寸的部分 */
- 
+  
 }
 
 .circle-image img {
@@ -11569,22 +11569,18 @@ html {
           display: flex;
       }
 
-      .experience, .position, .research {
+      .experience, .position{
           flex: 1;
           padding: 20px;
       }
 
-      .experience h2, .position h2, .research h2 {
+      .experience h2, .position h2{
           text-align: center; 
       }
 
       .experience ul, .position ul {
           list-style: none;
           padding: 0;
-      }
-
-      .research p {
-          text-align: justify;
       }
 
       h2.underline {
