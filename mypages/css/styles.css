@@ -8622,6 +8622,10 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 768px) {
+  .circle-image img {
+    width: 50%; /* 缩小图片的宽度为容器的宽度 */
+    height: 50%; /* 根据宽度等比例调整图片的高度 */
+  }
   .float-md-start {
     float: left !important;
   }
