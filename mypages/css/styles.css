@@ -10784,15 +10784,15 @@ html {
 
   @media (min-width: 502px) {
   .carousel-inner{
-    width: 60%;
+    width: 50%;
     height: 50vh;
   }
   .carousel-item{
-    width: 60%;
+    width: 50%;
     height: 60%;
   }
   .carousel-item img, .carousel-item video{
-    width: 60%;
+    width: 50%;
     height: 60%;
     object-fit: cover;
   }
