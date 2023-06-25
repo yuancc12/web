@@ -8616,6 +8616,10 @@ textarea.form-control-lg {
   .text-sm-center {
     text-align: center !important;
   }
+  .circle-image img {
+    width: 50%; /* 缩小图片的宽度为容器的宽度 */
+    height: 50%; /* 根据宽度等比例调整图片的高度 */
+  }
 }
 @media (min-width: 768px) {
   .float-md-start {
@@ -11505,18 +11509,11 @@ html {
   overflow: hidden; /* 隐藏超出容器尺寸的部分 */
   
 }
-
 .circle-image img {
   width: 100%; /* 缩小图片的宽度为容器的宽度 */
   height: 100%; /* 根据宽度等比例调整图片的高度 */
 }
 
-.container2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* 设置容器的高度，这里使用视口高度作为示例 */
-}
 
 .carousel-inner{
   width: 100%;
