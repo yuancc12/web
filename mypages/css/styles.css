@@ -10785,7 +10785,7 @@ html {
   @media (min-width: 502px) {
   .carousel-inner{
     width: 60%;
-    height: 100vh;
+    height: 50vh;
   }
   .carousel-item{
     width: 60%;
