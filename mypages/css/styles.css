@@ -882,7 +882,7 @@ progress {
 @media (min-width: 576px) {
   .carousel-inner{
     width: 50%;
-    height: 100vh;
+    height: 50vh;
   }
   .carousel-item{
     width: 50%;
