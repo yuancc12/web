@@ -632,7 +632,7 @@ progress {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 276px) {
   .circle-image {
     width:45%
   }
