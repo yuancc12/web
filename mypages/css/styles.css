@@ -631,11 +631,13 @@ progress {
   margin-right: auto;
   margin-left: auto;
 }
-
-@media (min-width: 276px) {
-  .circle-image {
-    width:45%
+@media (min-width: 320px) {
+  .container-sm, .container {
+    max-width: 320px;
   }
+}
+@media (min-width: 576px) {
+  
   .container-sm, .container {
     max-width: 540px;
   }
