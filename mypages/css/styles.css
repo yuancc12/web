@@ -10782,31 +10782,18 @@ html {
         font-family: 'Lobster', cursive;
       }
 
-  .carousel-inner{
-    width: 50%;
-    height: 100vh;
-  }
-  .carousel-item{
-    width: 50%;
-    height: 50%;
-  }
-  .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-  }
   @media (min-width: 502px) {
   .carousel-inner{
-    width: 50%;
+    width: 60%;
     height: 100vh;
   }
   .carousel-item{
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
   }
   .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     object-fit: cover;
   }
 }
