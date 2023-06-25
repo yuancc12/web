@@ -880,19 +880,7 @@ progress {
 }
 
 @media (min-width: 576px) {
-  .carousel-inner{
-    width: 50%;
-    height: 50vh;
-  }
-  .carousel-item{
-    width: 50%;
-    height: 500%;
-  }
-  .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-  }
+  
   .col-sm {
     flex: 1 0 0%;
   }
@@ -1106,6 +1094,19 @@ progress {
   }
 }
 @media (min-width: 768px) {
+  .carousel-inner{
+    width: 50%;
+    height: 50vh;
+  }
+  .carousel-item{
+    width: 50%;
+    height: 500%;
+  }
+  .carousel-item img, .carousel-item video{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
   .col-md {
     flex: 1 0 0%;
   }
