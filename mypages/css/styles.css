@@ -1528,12 +1528,12 @@ progress {
 }
 @media (min-width: 1200px) {
   .carousel-inner{
-    width: 50%;
+    width: 100%;
     height: 50vh;
   }
   .carousel-item{
-    width: 50%;
-    height: 500%;
+    width: 100%;
+    height: 100%;
   }
   .carousel-item img, .carousel-item video{
     width: 50%;
