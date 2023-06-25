@@ -880,6 +880,19 @@ progress {
 }
 
 @media (min-width: 576px) {
+  .carousel-inner{
+    width: 50%;
+    height: 100vh;
+  }
+  .carousel-item{
+    width: 50%;
+    height: 500%;
+  }
+  .carousel-item img, .carousel-item video{
+    width: 500%;
+    height: 50%;
+    object-fit: cover;
+  }
   .col-sm {
     flex: 1 0 0%;
   }
