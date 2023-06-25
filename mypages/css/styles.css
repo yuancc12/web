@@ -1527,19 +1527,7 @@ progress {
   }
 }
 @media (min-width: 1200px) {
-  .carousel-inner{
-    width: 100%;
-    height: 50vh;
-  }
-  .carousel-item{
-    width: 100%;
-    height: 100%;
-  }
-  .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-  }
+  
   .col-xl {
     flex: 1 0 0%;
   }
@@ -1753,6 +1741,7 @@ progress {
   }
 }
 @media (min-width: 1400px) {
+
   .col-xxl {
     flex: 1 0 0%;
   }
@@ -10792,3 +10781,32 @@ html {
       .headfronteng{
         font-family: 'Lobster', cursive;
       }
+
+  .carousel-inner{
+    width: 50%;
+    height: 100vh;
+  }
+  .carousel-item{
+    width: 50%;
+    height: 50%;
+  }
+  .carousel-item img, .carousel-item video{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+  @media (min-width: 502px) {
+  .carousel-inner{
+    width: 50%;
+    height: 100vh;
+  }
+  .carousel-item{
+    width: 50%;
+    height: 50%;
+  }
+  .carousel-item img, .carousel-item video{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+}
