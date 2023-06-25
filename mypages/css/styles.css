@@ -889,7 +889,7 @@ progress {
     height: 500%;
   }
   .carousel-item img, .carousel-item video{
-    width: 500%;
+    width: 50%;
     height: 50%;
     object-fit: cover;
   }
