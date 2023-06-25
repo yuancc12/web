@@ -10774,6 +10774,8 @@ html {
       
       .resume-section {
           display: flex;
+          flex-wrap: wrap;
+          width: 100%;
       }
       
       .experience, .position{
