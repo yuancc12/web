@@ -10789,11 +10789,11 @@ html {
   }
   .carousel-item{
     width: 60%;
-    height: 80%;
+    height: 60%;
   }
   .carousel-item img, .carousel-item video{
     width: 60%;
-    height: 80%;
+    height: 60%;
     object-fit: cover;
   }
   .carousel-caption.d-md-block {
