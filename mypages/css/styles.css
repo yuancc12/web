@@ -633,6 +633,9 @@ progress {
 }
 
 @media (min-width: 576px) {
+  .circle-image {
+    width:45%
+  }
   .container-sm, .container {
     max-width: 540px;
   }
