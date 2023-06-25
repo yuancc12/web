@@ -10673,6 +10673,26 @@ html {
   font-size: 2.25rem;
   line-height: 2rem;
 }
+
+
+@media (min-width: 300px) {
+  .carousel-inner{
+    width: 50%;
+    height: 50vh;
+  }
+  .carousel-item{
+    width: 50%;
+    height: 60%;
+  }
+  .carousel-item img, .carousel-item video{
+    width: 50%;
+    height: 60%;
+    object-fit: cover;
+  }
+  .carousel-caption.d-md-block {
+    display: block; /* 在中等断点（md）及以上显示标题 */
+  }
+}
 @media (min-width: 992px) {
   .portfolio-modal .portfolio-modal-title {
     font-size: 3rem;
@@ -10781,22 +10801,3 @@ html {
       .headfronteng{
         font-family: 'Lobster', cursive;
       }
-
-  @media (min-width: 502px) {
-  .carousel-inner{
-    width: 50%;
-    height: 50vh;
-  }
-  .carousel-item{
-    width: 50%;
-    height: 60%;
-  }
-  .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 60%;
-    object-fit: cover;
-  }
-  .carousel-caption.d-md-block {
-    display: block; /* 在中等断点（md）及以上显示标题 */
-  }
-}
