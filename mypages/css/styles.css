@@ -627,6 +627,9 @@ progress {
   margin-left: auto;
 }
 @media (min-width: 576px) {
+  .d-md-block {
+    display: block!important;
+}
   
   .container-sm, .container {
     max-width: 540px;
@@ -880,6 +883,11 @@ progress {
 }
 
 @media (min-width: 576px) {
+  .carousel-item img, .carousel-item video{
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+  }
   
   .col-sm {
     flex: 1 0 0%;
@@ -10675,6 +10683,13 @@ html {
 }
 
 
+
+@media (min-width: 992px) {
+  .portfolio-modal .portfolio-modal-title {
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+}
 
 .footer {
   padding-top: 5rem;
