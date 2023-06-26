@@ -10675,31 +10675,6 @@ html {
 }
 
 
-@media (min-width: 300px) {
-  .carousel-inner{
-    width: 50%;
-    height: 50vh;
-  }
-  .carousel-item{
-    width: 50%;
-    height: 60%;
-  }
-  .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 60%;
-    object-fit: cover;
-  }
-  .resume-section {
-    display: flex;
-    flex-wrap: wrap;
-}
-}
-@media (min-width: 992px) {
-  .portfolio-modal .portfolio-modal-title {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
-}
 
 .footer {
   padding-top: 5rem;
