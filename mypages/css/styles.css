@@ -627,10 +627,6 @@ progress {
   margin-left: auto;
 }
 @media (min-width: 576px) {
-  .d-block {
-    display: block!important;
-}
-  
   .container-sm, .container {
     max-width: 540px;
   }
@@ -883,6 +879,11 @@ progress {
 }
 
 @media (min-width: 576px) {
+  .d-block {
+
+    display: block!important;
+}
+  
   .carousel-item img, .carousel-item video{
     width: 100%;
     height: 100%;
@@ -10714,7 +10715,7 @@ html {
 
 .carousel-inner{
   width: 100%;
-  height: 100vh;
+  height: 50vh;
 }
 .carousel-item{
   width: 100%;
