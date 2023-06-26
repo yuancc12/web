@@ -884,11 +884,10 @@ progress {
 
 @media (min-width: 576px) {
   .carousel-item img, .carousel-item video{
-    width: 30%;
-    height: 30%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
-  
   .col-sm {
     flex: 1 0 0%;
   }
@@ -1104,8 +1103,8 @@ progress {
 @media (min-width: 768px) {
  
   .carousel-item img, .carousel-item video{
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
   .col-md {
@@ -10721,11 +10720,7 @@ html {
   width: 100%;
   height: 100%;
 }
-.carousel-item img, .carousel-item video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .headfronteng{
           font-family: 'Lobster', cursive;
       }
