@@ -10689,14 +10689,10 @@ html {
     height: 60%;
     object-fit: cover;
   }
-  .carousel-caption.d-md-block {
-    display: block; /* 在中等断点（md）及以上显示标题 */
-  }
   .resume-section {
     display: flex;
     flex-wrap: wrap;
 }
-
 }
 @media (min-width: 992px) {
   .portfolio-modal .portfolio-modal-title {
