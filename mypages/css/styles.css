@@ -10765,7 +10765,16 @@ html {
           cursor: pointer;
           background-color:#6fc3a7;;
       }
-      
+      .box2{
+        overflow: hidden;
+        filter: grayscale(100%);
+        opacity: 0.5;
+        transition: opacity 0.5s, transform 0.5s;
+      }
+      .box2:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
       .resume-section {
           display: flex;
           flex-wrap: wrap;
