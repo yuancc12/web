@@ -627,12 +627,18 @@ progress {
   margin-left: auto;
 }
 @media (min-width: 576px) {
+  .change{
+    display: block ;
+  }
+  
   .container-sm, .container {
     max-width: 540px;
-    display:block;
   }
 }
 @media (min-width: 768px) {
+  .change{
+    display: block ;
+  }
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
@@ -643,11 +649,17 @@ progress {
   }
 }
 @media (min-width: 1200px) {
+  .change{
+    display: flex ;
+  }
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
   }
 }
 @media (min-width: 1400px) {
+  .change{
+    display: flex ;
+  }
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1320px;
   }
@@ -10735,13 +10747,7 @@ html {
   height: 100%;
 }
 
-.headfronteng{
-          font-family: 'Lobster', cursive;
-      }
-      @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
-      .headfrontchn{
-          font-family:'Noto Sans TC',sans-serif;
-      }
+
       .flex-container {
           display: flex;
           justify-content: space-between; /* 调整区块之间的空间 */
@@ -10811,4 +10817,7 @@ html {
       }
       .headfronteng{
         font-family: 'Lobster', cursive;
+      }
+      .headfrontchn{
+        font-family:"KaiTi" ;
       }
