@@ -649,6 +649,9 @@ progress {
   }
 }
 @media (min-width: 1200px) {
+  .size{
+    width:65%
+  }
   .change{
     display: flex ;
   }
