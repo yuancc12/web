@@ -655,6 +655,9 @@ progress {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
   }
+  .aboutme{
+    max-width: 700px;
+  }
 }
 @media (min-width: 1400px) {
   .change{
