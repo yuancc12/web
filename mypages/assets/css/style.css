@@ -112,7 +112,7 @@ h6 {
     transition-delay: 0 !important;
   }
   #hero {
-    height: 400px /* 根据需要调整 */ !important;
+    height: auto /* 根据需要调整 */ !important;
   }
 }
 
