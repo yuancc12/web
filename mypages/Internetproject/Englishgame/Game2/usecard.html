@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<header>
+    <meta charset="UTF-8">
+    <title>functioncard</title>
+    <link rel="stylesheet" href="common.css">
+</header>
+<style>
+    .ecardlocation{
+        background-color: darkgrey;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .fcard{
+        height: 380px;
+        width: 290px;
+        margin: 10px;
+    }
+</style>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var count = parseInt(urlParams.get('count'));
+    var totalPT = parseInt(urlParams.get('totalPT'));
+    var collection = parseInt(urlParams.get('collection'));
+    var coin = parseInt(urlParams.get('coin'));
+    var face = parseInt(urlParams.get('face'));
+    var draw = parseInt(urlParams.get('draw'));
+    var eface = parseInt(urlParams.get('eface'));
+    var edraw = parseInt(urlParams.get('edraw'));
+    var press = parseInt(urlParams.get('press'));
+    var cprice = parseInt(urlParams.get('cprice'));
+    var pprice = parseInt(urlParams.get('pprice'));
+    var fprice = parseInt(urlParams.get('fprice'));
+    var extracoin = parseInt(urlParams.get('extracoin'));
+    var extrapt = parseInt(urlParams.get('extrapt'));
+    var round = parseInt(urlParams.get('round'));
+    var fdraw = parseInt(urlParams.get('fdraw'));
+    var maxcard = parseInt(urlParams.get('maxcard'));
+    var player = JSON.parse(decodeURIComponent(urlParams.get('player')));
+    var F5 = parseInt(urlParams.get('F5'));
+    var havefcard = [];
+    var card =[
+        {id:'N1', name:'computer', cname:'電腦', raility: null ,point: null},
+        {id:'N2', name:'phone', cname:'手機', raility: null ,point: null},
+        {id:'N3', name:'distinguish', cname:'分辨', raility: null ,point: null},
+        {id:'N4', name:'book', cname:'書籍', raility: null ,point: null},
+        {id:'N5', name:'table', cname:'桌子', raility: null ,point: null},
+        {id:'N6', name:'chair', cname:'椅子', raility: null ,point: null},
+        {id:'N7', name:'cat', cname:'貓', raility: null ,point: null},
+        {id:'N8', name:'dog', cname:'狗', raility: null ,point: null},
+        {id:'N9', name:'bird', cname:'鳥', raility: null ,point: null},
+        {id:'N10', name:'car', cname:'汽車', raility: null ,point: null},
+        {id:'N11', name:'tree', cname:'樹', raility: null ,point: null},
+        {id:'N12', name:'flower', cname:'花', raility: null ,point: null},
+        {id:'N13', name:'river', cname:'河流', raility: null ,point: null},
+        {id:'N14', name:'mountain', cname:'山', raility: null ,point: null},
+        {id:'N15', name:'sun', cname:'太陽', raility: null ,point: null},
+        {id:'N16', name:'moon', cname:'月亮', raility: null ,point: null},
+        {id:'N17', name:'star', cname:'星星', raility: null ,point: null},
+        {id:'N18', name:'sky', cname:'天空', raility: null ,point: null},
+        {id:'N19', name:'cloud', cname:'雲', raility: null ,point: null},
+        {id:'N20', name:'rain', cname:'雨', raility: null ,point: null},
+        {id:'N21', name:'snow', cname:'雪', raility: null ,point: null},
+        {id:'N22', name:'wind', cname:'風', raility: null ,point: null},
+        {id:'N23', name:'fire', cname:'火', raility: null ,point: null},
+        {id:'N24', name:'water', cname:'水', raility: null ,point: null},
+        {id:'N25', name:'earth', cname:'地球', raility: null ,point: null},
+        {id:'N26', name:'language', cname:'語言', raility: null ,point: null},
+        {id:'N27', name:'music', cname:'音樂', raility: null ,point: null},
+        {id:'N28', name:'art', cname:'藝術', raility: null ,point: null},
+        {id:'N29', name:'science', cname:'科學', raility: null ,point: null},
+        {id:'N30', name:'history', cname:'歷史', raility: null ,point: null},
+        {id:'N31', name:'culture', cname:'文化', raility: null ,point: null},
+        {id:'N32', name:'sport', cname:'運動', raility: null ,point: null},
+        {id:'N33', name:'food', cname:'食物', raility: null ,point: null},
+        {id:'N34', name:'friend', cname:'朋友', raility: null ,point: null},
+        {id:'N35', name:'family', cname:'家庭', raility: null ,point: null},
+        {id:'N36', name:'love', cname:'愛', raility: null ,point: null},
+        {id:'N37', name:'happiness', cname:'幸福', raility: null ,point: null},
+        {id:'N38', name:'peace', cname:'和平', raility: null ,point: null},
+        {id:'N39', name:'freedom', cname:'自由', raility: null ,point: null},
+        {id:'N40', name:'knowledge', cname:'知識', raility: null ,point: null},
+        {id:'N41', name:'success', cname:'成功', raility: null ,point: null},
+        {id:'N42', name:'dream', cname:'夢想', raility: null ,point: null},
+        {id:'N43', name:'Organization', cname:'组織', raility: null, point: null},
+        {id:'N44', name:'Communication', cname:'交流', raility: null, point: null},
+        {id:'N45', name:'Technology', cname:'技術', raility: null, point: null},
+        {id:'F1', name:'機會卡', describle:'使用後選擇稀有度並獲得對應一張英文卡,算抽卡次數且重複沒金幣',type:'功能卡'},
+        {id:'F2', name:'挑戰卡', describle:'使用後會進行英文挑戰,若成功增加積分,但失敗會失去金幣',type:'功能卡'},
+        {id:'F3', name:'選擇卡', describle:'使用後從兩個條件兩選一',type:'功能卡'},
+        {id:'F4', name:'神秘卡', describle:'使用後隨機獲得????????',type:'功能卡'},
+        {id:'F5', name:'魔法卡', describle:'使用後會根據下一張抽卡產生對應效果',type:'功能卡'}
+        /*重複英文卡額外獲得10金幣,新英文卡額外獲得10積分,功能卡會把自己的所有功能卡清空*/
+    ];
+    for(let i=0;i<card.length;i++){
+        if(card[i]['raility'] === null && card[i]['id'][0] === 'N'){
+            if(card[i]['name'].length >= 10){
+                card[i]['raility'] = 'SSR';
+                card[i]['point'] = 10;
+            }
+            else if(card[i]['name'].length >= 8){
+                card[i]['raility'] = 'SR';
+                card[i]['point'] = 6;
+            }
+            else if(card[i]['name'].length >= 5){
+                card[i]['raility'] = 'R';
+                card[i]['point'] = 3;
+            }
+            else{
+                card[i]['raility'] = 'N';
+                card[i]['point'] = 1;
+            }
+        }
+    }
+    var choice = ['積分+10','積分-10','金幣+10','金幣-10','抽卡次數+4','抽卡次數-4',
+        '金幣增益level+1','金幣增益level-1','積分增益level+1','積分增益level-1'];
+    function back(){
+        var url = "limit.html";
+        url += "?count=" + count;
+        url += "&totalPT=" + totalPT;
+        url += "&collection=" + collection;
+        url += "&coin=" + coin;
+        url += "&face=" + face;
+        url += "&draw=" + draw;
+        url += "&edraw=" + edraw;
+        url += "&eface=" + eface;
+        url += "&press=" + press;
+        url += "&cprice=" + cprice;
+        url += "&pprice=" + pprice;
+        url += "&fprice=" + fprice;
+        url += "&extracoin=" + extracoin;
+        url += "&extrapt=" + extrapt;
+        url += "&round=" + round;
+        url += "&fdraw=" + fdraw;
+        url += "&maxcard=" + maxcard;
+        url += "&F5=" + F5;
+        url += "&player=" + encodeURIComponent(JSON.stringify(player));
+        window.location.href = url;
+    }
+    function useF1(){
+        var check = confirm('確定使用機會卡嗎?');
+        if(check === false){
+            return;
+        }
+        var raility = prompt('請輸入想要的稀有度的英文卡');
+        while(1){
+            if(raility === 'SSR' || raility === 'SR' || raility === 'R' || raility === 'N'){
+                break;
+            }
+            alert('無效輸入,請再次輸入');
+            var raility = prompt('請輸入想要的稀有度的英文卡');
+        }
+        if(raility === 'SSR'){
+            var temp=[];
+            for(var i = 0;i < card.length;i++){
+                if(card[i]['raility'] === 'SSR'){
+                    temp.push(card[i]);
+                }
+            }
+            var rdraw = Math.floor(Math.random() * temp.length);
+            count++;
+            for(j=0;j<player.length;j++){
+                if(player[j]['id'] === temp[rdraw]['id']){
+                    break;
+                }
+            }
+            if(j === player.length){
+                player.push(temp[rdraw]);
+                totalPT = totalPT + temp[rdraw]['point'] + extrapt;
+                collection++;
+            }
+            alert('抽到了稀有度為SSR的' + temp[rdraw]['name'] + '英文卡');
+        }
+        else if(raility === 'SR'){
+            var temp=[];
+            for(var i = 0;i < card.length;i++){
+                if(card[i]['raility'] === 'SR'){
+                    temp.push(card[i]);
+                }
+            }
+            var rdraw = Math.floor(Math.random() * temp.length);
+            count++;
+            for(j=0;j<player.length;j++){
+                if(player[j]['id'] === temp[rdraw]['id']){
+                    break;
+                }
+            }
+            if(j === player.length){
+                player.push(temp[rdraw]);
+                totalPT = totalPT + temp[rdraw]['point'] + extrapt;
+                collection++;
+            }
+            alert('抽到了稀有度為SR的' + temp[rdraw]['name'] + '英文卡');
+        }
+        else if(raility === 'R'){
+            var temp=[];
+            for(var i = 0;i < card.length;i++){
+                if(card[i]['raility'] === 'R'){
+                    temp.push(card[i]);
+                }
+            }
+            var rdraw = Math.floor(Math.random() * temp.length);
+            count++;
+            for(j=0;j<player.length;j++){
+                if(player[j]['id'] === temp[rdraw]['id']){
+                    break;
+                }
+            }
+            if(j === player.length){
+                player.push(temp[rdraw]);
+                totalPT = totalPT + temp[rdraw]['point'] + extrapt;
+                collection++;
+            }
+            alert('抽到了稀有度為SSR的' + temp[rdraw]['name'] + '英文卡');
+        }
+        else if(raility === 'N'){
+            var temp=[];
+            for(var i = 0;i < card.length;i++){
+                if(card[i]['raility'] === 'N'){
+                    temp.push(card[i]);
+                }
+            }
+            var rdraw = Math.floor(Math.random() * temp.length);
+            count++;
+            for(j=0;j<player.length;j++){
+                if(player[j]['id'] === temp[rdraw]['id']){
+                    break;
+                }
+            }
+            if(j === player.length){
+                player.push(temp[rdraw]);
+                totalPT = totalPT + temp[rdraw]['point'] + extrapt;
+                collection++;
+            }
+            alert('抽到了稀有度為SSR的' + temp[rdraw]['name'] + '英文卡');
+        }
+        for(var i = player.length - 1;i>=0 ;i--){
+            if(player[i]['id'] === 'F1'){
+                var table = document.getElementById('table' + i);
+                table.remove();
+                player.splice(i, 1, {id: null});
+                break;
+            }
+        }
+    }
+    function useF2(){
+        var check = confirm('確定使用挑戰卡嗎?');
+        if(check === false){
+            return;
+        }
+        var word = Math.floor(Math.random() * player.length);
+        var qtype = Math.floor(Math.random() * 2);
+        while(player[word]['id'][0] === 'F'){
+            word = Math.floor(Math.random() * player.length);
+        }
+        if(qtype === 0){
+            var ans = prompt('請問' + player[word]['cname'] + '的英文是甚麼?')
+            if(ans === player[word]['name']){
+                alert('答對了,獲得10積分');
+                totalPT = totalPT + 10;
+            }
+            else{
+                alert('答錯了,扣損失10金幣\n笞案是: ' + player[word]['name']);
+                coin = coin - 10;
+            }
+        }else if(qtype === 1){
+            var ans = prompt('請問' + player[word]['name'] + '的中文是甚麼?')
+            if(ans === player[word]['cname']){
+                alert('答對了,獲得10積分');
+                totalPT = totalPT + 10;
+            }
+            else{
+                alert('答錯了,扣損失10金幣\n笞案是: ' + player[word]['cname']);
+                coin = coin - 10;
+            }
+        }
+        for(var i = player.length - 1;i>=0 ;i--){
+            if(player[i]['id'] === 'F2'){
+                var table = document.getElementById('table' + i);
+                table.remove();
+                player.splice(i, 1, {id: null});
+                break;
+            }
+        }
+    }
+    function useF3(){
+        var check = confirm('確定使用選擇卡嗎?');
+        if(check === false){
+            return;
+        }
+        var choose1 = Math.floor(Math.random() * choice.length);
+        var choose2 = Math.floor(Math.random() * choice.length);
+        while(choose2 === choose1){
+            choose2 = Math.floor(Math.random() * choose.length);
+        }
+        var you = prompt('請填寫數字進行選擇\n1. ' + choice[choose1] + '\n2. ' + choice[choose2]);
+        while(1){
+            if(you === '1' || you === '2'){
+                if(you === '1'){
+                    you = choose1;
+                    you = parseInt(you);
+                }else{
+                    you = choose2;
+                    you = parseInt(you);
+                }
+                break;
+            }
+            alert('無效輸入,請再次輸入');
+            you = prompt('請填寫數字進行選擇\n1. ' + choice[choose1] + '\n2. ' + choice[choose2]);
+        }
+        if(you === 0){
+            totalPT = totalPT + 10;
+        }else if(you === 1){
+            totalPT = totalPT - 10;
+        }else if(you === 2){
+            coin = coin + 10;
+        }else if(you === 3){
+            coin = coin - 10;
+        }else if(you === 4){
+            count = count + 4;
+        }else if(you === 5){
+            count = count - 4;
+        }else if(you === 6){
+            extracoin = extracoin + 1;
+        }else if(you === 7){
+            extracoin = extracoin - 1;
+            if(extracoin < 0){
+                extracoin = 0;
+            }
+        }else if(you === 8){
+            extrapt = extrapt + 1;
+        }else if(you === 9){
+            extrapt = extrapt - 1;
+            if(extrapt < 0){
+                extrapt = 0;
+            }
+        }
+        for(var i = player.length - 1;i>=0 ;i--){
+            if(player[i]['id'] === 'F3'){
+                var table = document.getElementById('table' + i);
+                table.remove();
+                player.splice(i, 1, {id: null});
+                break;
+            }
+        }
+    }
+    function useF4(){
+        var check = confirm('確定使用神祕卡嗎?');
+        if(check === false){
+            return;
+        }
+        alert('已獲得????????????????')
+        var luckydraw = Math.floor(Math.random() * 100) + 1;
+        if(luckydraw <=10){
+            alert('神祕人:你得到了這句訊息');
+        }
+        else if(luckydraw <= 12){
+            cprice = 0;
+        } 
+        else if(luckydraw <= 14){
+            cprice = 100;
+        }
+        else if(luckydraw <= 16){
+            pprice = 0;
+        }
+        else if(luckydraw <= 18){
+            pprice = 100;
+        }
+        else if(luckydraw <= 20){
+            fprice = 0;
+        }
+        else if(luckydraw <= 22){
+            fprice = 100;
+        }
+        else if(luckydraw <= 24){
+            maxcard = count;
+        }
+        else if(luckydraw <= 26){
+            coin = coin + 1000;
+        }
+        else if(luckydraw <= 28){
+            extracoin = extracoin + 5;
+        }
+        else if(luckydraw <= 30){
+            extracoin = extracoin - 5;
+        }
+        else if(luckydraw <= 32){
+            extrapt = extrapt + 5;
+        }
+        else if(luckydraw <= 34){
+            extrapt = extrapt - 5;
+        }
+        else if(luckydraw <= 36){
+            round = 100;
+        }
+        else if(luckydraw <= 38){
+            round = 0;
+        }
+        else if(luckydraw <= 40){
+            player.push[card[45]];
+            player.push[card[46]];
+            player.push[card[47]];
+            player.push[card[49]];
+        }
+        else if(luckydraw <= 50){
+            coin = coin + 10;
+            totalPT = totalPT - 10;
+        }
+        else if(luckydraw <= 75){
+            totalPT = totalPT + 5;
+        }
+        else if(luckydraw <= 100){
+            totalPT = totalPT - 5;
+        }
+        for(var i = player.length - 1;i>=0 ;i--){
+            if(player[i]['id'] === 'F4'){
+                var table = document.getElementById('table' + i);
+                table.style.display = 'none';
+                player.splice(i, 1, {id: null});
+                break;
+            }
+        }
+    }
+    function useF5(){
+        var check = confirm('確定使用魔法卡嗎?');
+        if(check === false){
+            return;
+        }
+        alert('說明:\n1. 重複英文卡額外獲得10金幣\n2. 新英文卡額外獲得10積分\n3. 功能卡會把自己的所有功能卡清空');
+        F5++;
+        for(var i = player.length - 1;i>=0 ;i--){
+            if(player[i]['id'] === 'F5'){
+                var table = document.getElementById('table' + i);
+                table.remove();
+                player.splice(i, 1, {id: null});
+                break;
+            }
+        }
+    }
+    function list(){
+        for(var i = 0;i< player.length;i++){
+            if(player[i]['id'][0] === 'F'){
+                havefcard.push(player[i]);
+                var cardLocation = document.querySelector(".ecardlocation");
+                var div = document.createElement("div");
+                var table = document.createElement("table");
+                table.classList.add("fcard");
+                table.setAttribute("id", "table" + i);
+                var tbody = document.createElement("tbody");
+                var td = document.createElement("td");
+                td.setAttribute("id", "side" + i);
+
+                //順序
+                cardLocation.appendChild(div);
+                div.appendChild(table)
+                table.appendChild(tbody);
+                tbody.appendChild(td);
+
+                td.innerHTML = '<h2>' + '功能卡' + '</h2>';
+                td.innerHTML += '<h2>' +  player[i].name + '</h2>';
+                td.innerHTML += '<p>' +  player[i].describle + '</p>';
+                td.innerHTML += '<h2>' +  'F' + '</h2>';
+                if(player[i]['id'] === 'F1'){
+                    td.innerHTML += '<button onclick="useF1()">' + '使用' + '</button>';
+                }else if(player[i]['id'] === 'F2'){
+                    td.innerHTML += '<button onclick="useF2()">' + '使用' + '</button>';
+                }else if(player[i]['id'] === 'F3'){
+                    td.innerHTML += '<button onclick="useF3()"">' + '使用' + '</button>';
+                }else if(player[i]['id'] === 'F4'){
+                    td.innerHTML += '<button onclick="useF4()">' + '使用' + '</button>';
+                }else if(player[i]['id'] === 'F5'){
+                    td.innerHTML += '<button onclick="useF5()">' + '使用' + '</button>';
+                }
+                railitycolor(i);
+            }
+        }   
+    }
+    function railitycolor(i){
+        var perimeter = document.getElementById('side' + i);
+        perimeter.style.border = '5px solid #333';
+    }
+</script>
+<body class="background" onload="list()">
+    <header></header><br><br>
+    <h1>功能卡</h1>
+    <div class="ecardlocation"></div>
+    <img src="back.png" class="back" onclick="back()">
+</body>

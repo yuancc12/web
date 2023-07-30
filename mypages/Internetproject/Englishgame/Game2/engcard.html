@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<header>
+    <meta charset="UTF-8">
+    <title>engcard</title>
+    <link rel="stylesheet" href="common.css">
+</header>
+<style>
+    .ecardlocation{
+        background-color: darkgrey;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .ncard{
+        height: 380px;
+        width: 290px;
+        margin: 10px;
+    }
+</style>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var count = parseInt(urlParams.get('count'));
+    var totalPT = parseInt(urlParams.get('totalPT'));
+    var collection = parseInt(urlParams.get('collection'));
+    var coin = parseInt(urlParams.get('coin'));
+    var face = parseInt(urlParams.get('face'));
+    var draw = parseInt(urlParams.get('draw'));
+    var eface = parseInt(urlParams.get('eface'));
+    var edraw = parseInt(urlParams.get('edraw'));
+    var press = parseInt(urlParams.get('press'));
+    var cprice = parseInt(urlParams.get('cprice'));
+    var pprice = parseInt(urlParams.get('pprice'));
+    var fprice = parseInt(urlParams.get('fprice'));
+    var extracoin = parseInt(urlParams.get('extracoin'));
+    var extrapt = parseInt(urlParams.get('extrapt'));
+    var round = parseInt(urlParams.get('round'));
+    var fdraw = parseInt(urlParams.get('fdraw'));
+    var maxcard = parseInt(urlParams.get('maxcard'));
+    var F5 = parseInt(urlParams.get('F5'));
+    var player = JSON.parse(decodeURIComponent(urlParams.get('player')));
+    function back(){
+        var url = "limit.html";
+        url += "?count=" + count;
+        url += "&totalPT=" + totalPT;
+        url += "&collection=" + collection;
+        url += "&coin=" + coin;
+        url += "&face=" + face;
+        url += "&draw=" + draw;
+        url += "&edraw=" + edraw;
+        url += "&eface=" + eface;
+        url += "&press=" + press;
+        url += "&cprice=" + cprice;
+        url += "&pprice=" + pprice;
+        url += "&fprice=" + fprice;
+        url += "&extracoin=" + extracoin;
+        url += "&extrapt=" + extrapt;
+        url += "&round=" + round;
+        url += "&fdraw=" + fdraw;
+        url += "&maxcard=" + maxcard;
+        url += "&F5=" + F5;
+        url += "&player=" + encodeURIComponent(JSON.stringify(player));
+        window.location.href = url;
+    }
+    function list(){
+        for(var i = 0;i< player.length;i++){
+            if(player[i]['id'][0] === 'N'){
+                var cardLocation = document.querySelector(".ecardlocation");
+                var div = document.createElement("div");
+                var table = document.createElement("table");
+                table.classList.add("ncard");
+                var tbody = document.createElement("tbody");
+                var td = document.createElement("td");
+                td.setAttribute("id", "side" + i);
+
+                //順序
+                cardLocation.appendChild(div);
+                div.appendChild(table)
+                table.appendChild(tbody);
+                tbody.appendChild(td);
+
+                td.innerHTML = '<h2>' + '英文卡' + '</h2>';
+                td.innerHTML += '<h2>' +  player[i].name + '</h2>';
+                td.innerHTML += '<p>' +  player[i].cname + '</p>';
+                td.innerHTML += '<h2>' +  player[i].raility + '</h2>';
+                railitycolor(i);
+            }
+        }
+            
+    }
+    function railitycolor(i){
+        var perimeter = document.getElementById('side' + i);
+            if(player[i]['raility'] === 'SSR'){
+                perimeter.style.border = '5px solid #ffd700';
+            }
+            else if(player[i]['raility'] === 'SR'){
+                perimeter.style.border = '5px solid #663399';
+            }
+            else if(player[i]['raility'] === 'R'){
+                perimeter.style.border = '5px solid #003366';
+            }
+            else{
+                perimeter.style.border = '5px solid #339933';
+            }
+        }
+</script>
+<body class="background" onload="list()">
+    <header></header><br><br>
+    <h1>已收集英文卡</h1>
+    <div class="ecardlocation"></div>
+    <img src="back.png" class="back" onclick="back()">
+</body>

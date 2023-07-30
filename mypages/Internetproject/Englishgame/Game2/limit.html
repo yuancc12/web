@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<head>
+    <title>drawcard</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="common.css">    
+</head>
+<style>
+    td{ 
+        justify-content: center; 
+        vertical-align: top;
+        background-color:cornsilk;
+        border: 5px solid brown;
+        text-align: center;
+    }
+    .modepick{
+        user-select: none;
+        border-style: outset;
+        border-width: medium;
+        color:cornsilk;
+        transition: border-style 0.5s linear;
+    }
+    .modepick:active{
+        border-style: inset;
+    }
+
+</style>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var count = parseInt(urlParams.get('count'));
+    var totalPT = parseInt(urlParams.get('totalPT'));
+    var collection = parseInt(urlParams.get('collection'));
+    var coin = parseInt(urlParams.get('coin'));
+    var face = parseInt(urlParams.get('face'));
+    var eface = parseInt(urlParams.get('eface'));
+    var draw = parseInt(urlParams.get('draw'));
+    var edraw = parseInt(urlParams.get('edraw'));
+    var press = parseInt(urlParams.get('press'));
+    var cprice = parseInt(urlParams.get('cprice'));
+    var pprice = parseInt(urlParams.get('pprice'));
+    var fprice = parseInt(urlParams.get('fprice'));
+    var extracoin = parseInt(urlParams.get('extracoin'));
+    var extrapt = parseInt(urlParams.get('extrapt'));
+    var round = parseInt(urlParams.get('round'));
+    var maxcard = parseInt(urlParams.get('maxcard'));
+    var player = JSON.parse(decodeURIComponent(urlParams.get('player')));
+    var fdraw = parseInt(urlParams.get('fdraw'));
+    var F5 = parseInt(urlParams.get('F5'));
+    if(count >= 50){
+                var start = document.getElementById('start');
+                var gameover = document.getElementById('gameover');
+                var toggleCard1 = document.getElementById('Mcard-flip');
+                start.style.display = 'none';
+                gameover.style.display = 'block';
+                toggleCard1.onclick = null;
+                alert('遊戲結束');
+            }
+    var card =[
+        {id:'N1', name:'computer', cname:'電腦', raility: null ,point: null},
+        {id:'N2', name:'phone', cname:'手機', raility: null ,point: null},
+        {id:'N3', name:'distinguish', cname:'分辨', raility: null ,point: null},
+        {id:'N4', name:'book', cname:'書籍', raility: null ,point: null},
+        {id:'N5', name:'table', cname:'桌子', raility: null ,point: null},
+        {id:'N6', name:'chair', cname:'椅子', raility: null ,point: null},
+        {id:'N7', name:'cat', cname:'貓', raility: null ,point: null},
+        {id:'N8', name:'dog', cname:'狗', raility: null ,point: null},
+        {id:'N9', name:'bird', cname:'鳥', raility: null ,point: null},
+        {id:'N10', name:'car', cname:'汽車', raility: null ,point: null},
+        {id:'N11', name:'tree', cname:'樹', raility: null ,point: null},
+        {id:'N12', name:'flower', cname:'花', raility: null ,point: null},
+        {id:'N13', name:'river', cname:'河流', raility: null ,point: null},
+        {id:'N14', name:'mountain', cname:'山', raility: null ,point: null},
+        {id:'N15', name:'sun', cname:'太陽', raility: null ,point: null},
+        {id:'N16', name:'moon', cname:'月亮', raility: null ,point: null},
+        {id:'N17', name:'star', cname:'星星', raility: null ,point: null},
+        {id:'N18', name:'sky', cname:'天空', raility: null ,point: null},
+        {id:'N19', name:'cloud', cname:'雲', raility: null ,point: null},
+        {id:'N20', name:'rain', cname:'雨', raility: null ,point: null},
+        {id:'N21', name:'snow', cname:'雪', raility: null ,point: null},
+        {id:'N22', name:'wind', cname:'風', raility: null ,point: null},
+        {id:'N23', name:'fire', cname:'火', raility: null ,point: null},
+        {id:'N24', name:'water', cname:'水', raility: null ,point: null},
+        {id:'N25', name:'earth', cname:'地球', raility: null ,point: null},
+        {id:'N26', name:'language', cname:'語言', raility: null ,point: null},
+        {id:'N27', name:'music', cname:'音樂', raility: null ,point: null},
+        {id:'N28', name:'art', cname:'藝術', raility: null ,point: null},
+        {id:'N29', name:'science', cname:'科學', raility: null ,point: null},
+        {id:'N30', name:'history', cname:'歷史', raility: null ,point: null},
+        {id:'N31', name:'culture', cname:'文化', raility: null ,point: null},
+        {id:'N32', name:'sport', cname:'運動', raility: null ,point: null},
+        {id:'N33', name:'food', cname:'食物', raility: null ,point: null},
+        {id:'N34', name:'friend', cname:'朋友', raility: null ,point: null},
+        {id:'N35', name:'family', cname:'家庭', raility: null ,point: null},
+        {id:'N36', name:'love', cname:'愛', raility: null ,point: null},
+        {id:'N37', name:'happiness', cname:'幸福', raility: null ,point: null},
+        {id:'N38', name:'peace', cname:'和平', raility: null ,point: null},
+        {id:'N39', name:'freedom', cname:'自由', raility: null ,point: null},
+        {id:'N40', name:'knowledge', cname:'知識', raility: null ,point: null},
+        {id:'N41', name:'success', cname:'成功', raility: null ,point: null},
+        {id:'N42', name:'dream', cname:'夢想', raility: null ,point: null},
+        {id:'N43', name:'Organization', cname:'组織', raility: null, point: null},
+        {id:'N44', name:'Communication', cname:'交流', raility: null, point: null},
+        {id:'N45', name:'Technology', cname:'技術', raility: null, point: null},
+        {id:'F1', name:'機會卡', describle:'使用後選擇稀有度並獲得對應一張英文卡,算抽卡次數且重複沒金幣',type:'功能卡'},
+        {id:'F2', name:'挑戰卡', describle:'使用後會進行英文挑戰,若成功增加積分,但失敗會失去金幣',type:'功能卡'},
+        {id:'F3', name:'選擇卡', describle:'使用後從兩個條件兩選一',type:'功能卡'},
+        {id:'F4', name:'神秘卡', describle:'使用後隨機獲得????????',type:'功能卡'},
+        {id:'F5', name:'魔法卡', describle:'使用後會根據下抽一張卡產生對應效果',type:'功能卡'}
+    ];
+    var event=[
+        {id:'E1', name:'努力讀書', describle:'積分+10'},
+        {id:'E2', name:'偷懶', describle:'積分-10'},
+        {id:'E3', name:'撿到錢', describle:'金錢+10'},
+        {id:'E4', name:'被警察抓', describle:'金錢-10'},
+        {id:'E5', name:'作者祝福', describle:'抽卡總數+1'},
+        {id:'E6', name:'作者咀咒', describle:'抽卡總數-1'}
+    ];
+    var fcard=[
+        {id:'F1', name:'機會卡', describle:'使用後選擇稀有度並獲得對應一張英文卡,算抽卡次數且重複沒金幣',type:'功能卡'},
+        {id:'F2', name:'挑戰卡', describle:'使用後會進行英文挑戰,若成功增加積分,但失敗會失去金幣',type:'功能卡'},
+        {id:'F3', name:'選擇卡', describle:'使用後從兩個條件兩選一',type:'功能卡'},
+        {id:'F4', name:'神秘卡', describle:'使用後隨機獲得????????',type:'功能卡'},
+        {id:'F5', name:'魔法卡', describle:'使用後會根據下一張抽卡產生對應效果',type:'功能卡'}
+    ];
+    for(let i=0;i<card.length;i++){
+        if(card[i]['raility'] === null && card[i]['id'][0] === 'N'){
+            if(card[i]['name'].length >= 10){
+                card[i]['raility'] = 'SSR';
+                card[i]['point'] = 10;
+            }
+            else if(card[i]['name'].length >= 8){
+                card[i]['raility'] = 'SR';
+                card[i]['point'] = 6;
+            }
+            else if(card[i]['name'].length >= 5){
+                card[i]['raility'] = 'R';
+                card[i]['point'] = 3;
+            }
+            else{
+                card[i]['raility'] = 'N';
+                card[i]['point'] = 1;
+            }
+        }
+    }
+    function checkNAN(){
+        if(isNaN(count) === true){
+            count=0;
+            totalPT=0;
+            collection=0;
+            coin=0;
+            face=0;
+            eface=0;
+            edraw=0;
+            draw=0;
+            press=0;
+            extracoin=0;
+            extrapt=0;
+            round=0;
+            fdraw= Math.floor(Math.random() * fcard.length);
+            F5 = 0;
+            palyer=[];
+        }
+    }
+    function F5effect(){
+        var j = 0;
+        if(F5 > 0){
+            F5--;
+            if(card[draw]['id'][0] === 'F'){
+                /*alert('魔法(功能卡):所有持有功能捨棄');*/
+                for(j=0;j<player.length;j++){
+                    if(player[j]['id'][0] === 'F'){
+                        player.splice(j, 1)
+                    }
+                }
+            }
+            else{
+                for(j=0;j<player.length;j++){
+                    if(player[j]['id'] === card[draw]['id']){
+                        /*alert('魔法(重複英文卡):額外增加10金幣');*/
+                        coin = coin + 10;
+                        return;
+                    }
+                }
+                if(j === player.length){
+                    /*alert('魔法(新英文卡):額外增加10積分');*/
+                    totalPT = totalPT + 10;
+                    return;
+                }
+            }
+        }
+    }
+    function toggleCard1(){
+            var McardFlip = document.getElementById('Mcard-flip');
+            var McardTable = document.getElementById('table1');
+            var McardImg = document.getElementById('cardf');
+            if(count >= maxcard){
+                var start = document.getElementById('start');
+                var gameover = document.getElementById('gameover');
+                var toggleCard1 = document.getElementById('Mcard-flip');
+                start.style.display = 'none';
+                gameover.style.display = 'block';
+                toggleCard1.onclick = null;
+                alert('遊戲結束');
+            }
+            if (face === 1) {
+                McardFlip.style.transform = 'rotateY(0deg)';
+                McardTable.style.transform = 'rotateY(0deg)';
+                McardTable.style.display = 'none';
+                McardImg.style.display = 'block';
+                press++;
+                face = 0;
+            } else if(face === 0){
+                McardFlip.style.transform = 'rotateY(180deg)';
+                McardTable.style.transform = 'rotateY(180deg)';
+                McardTable.style.display = 'table';
+                McardImg.style.display = 'none';
+                count++;
+                press++;
+                if(round > 0){
+                    round--;
+                }
+                face = 1;
+            }
+            gameinfo();
+            runEvent();  
+        }
+        function toggleCard2(){
+            var LcardFlip = document.getElementById('Lcard-flip');
+            var LcardTable = document.getElementById('table2');
+            var LcardImg = document.getElementById('ecard');
+
+            if (eface === 1) {
+                LcardFlip.style.transform = 'rotateY(0deg)';
+                LcardTable.style.transform = 'rotateY(0deg)';
+                LcardTable.style.display = 'none';
+                LcardImg.style.display = 'block';
+                eface = 0;
+            }else if(eface === 0){
+                LcardFlip.style.transform = 'rotateY(180deg)';
+                LcardTable.style.transform = 'rotateY(180deg)';
+                LcardTable.style.display = 'table';
+                LcardImg.style.display = 'none';
+                eface = 1;
+            }
+        }
+        function runEvent(){
+            if(count % 5 === 0 && count != 0){
+                edraw = Math.floor(Math.random() * event.length);
+                document.getElementById("ename").innerHTML = event[edraw]['name'];
+                document.getElementById("content").innerHTML = event[edraw]['describle'];
+                toggleCard2();
+                if(press % 2 === 1){
+                    coin = coin + 5;
+                    if(edraw === 0){
+                        totalPT = totalPT + 10;
+                    }
+                    else if(edraw === 1){
+                        totalPT = totalPT - 10;
+                    }
+                    else if(edraw === 2){
+                        coin = coin + 10;
+                    }
+                    else if(edraw === 3){
+                        coin = coin - 10;
+                    }
+                    else if(edraw === 4){
+                        maxcard = maxcard + 1;
+                    }
+                    else if(edraw === 5){
+                        maxcard = maxcard - 1;
+                    }
+                }
+            }
+        }
+        function back(){
+            window.location.href="index.html"
+        }
+        function shop(){
+            var url = "shop.html";
+            url += "?count=" + count;
+            url += "&totalPT=" + totalPT;
+            url += "&collection=" + collection;
+            url += "&coin=" + coin;
+            url += "&face=" + face;
+            url += "&eface=" + eface;
+            url += "&draw=" + draw;
+            url += "&edraw=" + edraw;
+            url += "&press=" + press;
+            url += "&cprice=" + cprice;
+            url += "&pprice=" + pprice;
+            url += "&fprice=" + fprice;
+            url += "&extracoin=" + extracoin;
+            url += "&extrapt=" + extrapt;
+            url += "&round=" + round;
+            url += "&fdraw=" + fdraw;
+            url += "&maxcard=" + maxcard;
+            url += "&F5=" + F5;
+            url += "&player=" + encodeURIComponent(JSON.stringify(player));
+            window.location.href = url;
+        }
+        function usecard(){
+            var url = "usecard.html";
+            url += "?count=" + count;
+            url += "&totalPT=" + totalPT;
+            url += "&collection=" + collection;
+            url += "&coin=" + coin;
+            url += "&face=" + face;
+            url += "&eface=" + eface;
+            url += "&draw=" + draw;
+            url += "&edraw=" + edraw;
+            url += "&press=" + press;
+            url += "&cprice=" + cprice;
+            url += "&pprice=" + pprice;
+            url += "&fprice=" + fprice;
+            url += "&extracoin=" + extracoin;
+            url += "&extrapt=" + extrapt;
+            url += "&round=" + round;
+            url += "&fdraw=" + fdraw;
+            url += "&maxcard=" + maxcard;
+            url += "&F5=" + F5;
+            url += "&player=" + encodeURIComponent(JSON.stringify(player));
+            window.location.href = url;
+        }
+        function engcard(){
+            var url = "engcard.html";
+            url += "?count=" + count;
+            url += "&totalPT=" + totalPT;
+            url += "&collection=" + collection;
+            url += "&coin=" + coin;
+            url += "&face=" + face;
+            url += "&eface=" + eface;
+            url += "&draw=" + draw;
+            url += "&edraw=" + edraw;
+            url += "&press=" + press;
+            url += "&cprice=" + cprice;
+            url += "&pprice=" + pprice;
+            url += "&fprice=" + fprice;
+            url += "&extracoin=" + extracoin;
+            url += "&extrapt=" + extrapt;
+            url += "&round=" + round;
+            url += "&fdraw=" + fdraw;
+            url += "&maxcard=" + maxcard;
+            url += "&F5=" + F5;
+            url += "&player=" + encodeURIComponent(JSON.stringify(player));
+            window.location.href = url;
+        }
+        function railitycolor(draw){
+            var perimeter = document.getElementById('background');
+            if(card[draw]['id'][0]==='N'){
+                if(card[draw]['raility'] === 'SSR'){
+                    perimeter.style.border = '5px solid #ffd700';
+                }
+                else if(card[draw]['raility'] === 'SR'){
+                    perimeter.style.border = '5px solid #663399';
+                }
+                else if(card[draw]['raility'] === 'R'){
+                    perimeter.style.border = '5px solid #003366';
+                }
+                else{
+                    perimeter.style.border = '5px solid #339933';
+                }
+            }
+            else{
+                perimeter.style.border = '5px solid #333';
+            }
+        }
+        function gameinfo(){
+            checkNAN();
+            for(var i=0;i<player.length;i++){
+                if(player[i]['id'] === null){
+                    player.splice(i, 1);
+                }
+            }
+            document.getElementById("count").innerHTML = '抽卡次數: '+ count + '/' + maxcard;
+            document.getElementById("point").innerHTML = '積分: '+ totalPT;
+            document.getElementById("collection").innerHTML ='已收集: ' + collection + '/45';
+            document.getElementById("coin").innerHTML = '金幣: '+ coin;
+            if(face === 1){
+                var McardFlip = document.getElementById('Mcard-flip');
+                var McardTable = document.getElementById('table1');
+                var McardImg = document.getElementById('cardf');
+                McardFlip.style.transform = 'rotateY(180deg)';
+                McardTable.style.transform = 'rotateY(180deg)';
+                McardTable.style.display = 'table';
+                McardImg.style.display = 'none';
+                railitycolor(draw);
+                if(card[draw]['id'][0]==='N'){
+                    document.getElementById("id").innerHTML = '英文卡';
+                    document.getElementById("name").innerHTML = card[draw]['name'];
+                    document.getElementById("cname").innerHTML = card[draw]['cname'];
+                    document.getElementById("raility").innerHTML = card[draw]['raility'];
+                }
+                else{
+                    document.getElementById("id").innerHTML = card[draw]['type'];
+                    document.getElementById("name").innerHTML = card[draw]['name'];
+                    document.getElementById("cname").innerHTML = card[draw]['describle'];
+                    document.getElementById("raility").innerHTML = 'F';
+                }
+            }
+            if(eface === 1){
+                var LcardFlip = document.getElementById('Lcard-flip');
+                var LcardTable = document.getElementById('table2');
+                var LcardImg = document.getElementById('ecard');
+                LcardFlip.style.transform = 'rotateY(180deg)';
+                LcardTable.style.transform = 'rotateY(180deg)';
+                LcardTable.style.display = 'table';
+                LcardImg.style.display = 'none';
+                document.getElementById("ename").innerHTML = event[edraw]['name'];
+                document.getElementById("content").innerHTML = event[edraw]['describle'];
+            }
+        }
+        function run(){
+            draw = Math.floor(Math.random()* card.length);
+            fdraw = Math.floor(Math.random() * fcard.length);
+            if(card[draw]['id'][0]==='N'){
+                document.getElementById("id").innerHTML = '英文卡';
+                document.getElementById("name").innerHTML = card[draw]['name'];
+                document.getElementById("cname").innerHTML = card[draw]['cname'];
+                document.getElementById("raility").innerHTML = card[draw]['raility'];
+            }
+            else{
+                document.getElementById("id").innerHTML = card[draw]['type'];
+                document.getElementById("name").innerHTML = card[draw]['name'];
+                document.getElementById("cname").innerHTML = card[draw]['describle'];
+                document.getElementById("raility").innerHTML = 'F';
+            }
+            if(press % 2 === 0)
+            {
+                F5effect();
+                if(player.length === 0){
+                    player.push(card[draw]);
+                    if(card[draw]['id'][0] === 'N'){
+                        totalPT = totalPT + card[draw]['point'];
+                        collection++;
+                    }
+                }
+                else{
+                    var j = 0;
+                    for(j=0;j<player.length;j++){
+                        if(player[j]['id'] === card[draw]['id']){
+                            if(card[draw]['id'][0] === 'N'){
+                                if(card[draw]['raility'] === 'SSR'){
+                                    coin = coin + 4 + extracoin;
+                                }
+                                else if(card[draw]['raility'] === 'SR'){
+                                    coin = coin + 3 + extracoin;
+                                }
+                                else if(card[draw]['raility'] === 'R'){
+                                    coin = coin + 2 + extracoin;
+                                }
+                                else{
+                                    coin = coin + 1 + extracoin;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    if(j === player.length){
+                        player.push(card[draw]);
+                        if(card[draw]['id'][0] === 'N'){
+                            totalPT = totalPT + card[draw]['point'] + extrapt;
+                            collection++;
+                        }
+                    }
+                }
+            }
+            railitycolor(draw);
+            toggleCard1();
+        }
+</script>
+<body class="background" onload="gameinfo()">
+    <header></header><br><br>
+    <h1 id="start">
+        資訊
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        限制模式
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        事件
+    </h1>
+    <h1 id="gameover" style="display: none">
+        資訊
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        遊戲結束
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        事件
+    </h1>
+    <div class="cardlocation">
+        <table class="table3">
+            <tbody>
+                <td>
+                    <h2>
+                        <div id="count"></div><br>
+                        <div id="point"></div><br>
+                        <div id="collection"></div><br>
+                        <div id="coin"></div>
+                    </h2>
+                </td>
+            </tbody>
+        </table>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <div class="Mcard-filp" id="Mcard-flip" onclick="run()">
+            <img src="mainbcard.png" class="cardf" id="cardf">
+            <table class="table1" id="table1" style="display: none;">
+                <tbody>
+                    <td id="background">
+                        <h2 id="id"></h2>
+                        <h2 id="name"></h2>
+                        <p id="cname"></p>
+                        <p id="raility"></p>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <div class="Lcard-filp" id="Lcard-flip">
+            <img src="eventbcard.png" class="ecard" id="ecard">
+            <table class="table2" id="table2" style="display: none;">
+                <tbody>
+                    <td>
+                        <h2 id="ename"></h2>
+                        <p id="content"></p>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button class="train" onclick="usecard()">功能卡</button>
+    <button class="collection" onclick="engcard()">已收集的英文卡</button>
+    <button class="shop" onclick="shop()">商店</button>
+    <div class="base">
+        <h2 class="modepick" onclick="back()">遊戲完結</h2>
+    </div>
+</body>

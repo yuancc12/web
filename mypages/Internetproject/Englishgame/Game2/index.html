@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+    <title>introducing</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="common.css">    
+</head>
+<style>
+    td{ 
+        justify-content: center; 
+        vertical-align: top;
+        border: 5px solid brown;
+        background-color:cornsilk;
+        text-align: center;
+    }
+    .modepick{
+        user-select: none;
+        border-style: outset;
+        border-width: medium;
+        color:cornsilk;
+        transition: border-style 0.5s linear;
+    }
+    .modepick:active{
+        border-style: inset;
+    }
+
+</style>
+<script>
+    var count = 0;
+    var totalPT = 0;
+    var collection = 0;
+    var coin = 0;
+    var eface = 0;
+    var face = 0;
+    var edraw = 0;
+    var draw = 0;
+    var press = 0;
+    var player=[];
+    var cprice = 10;
+    var pprice = 10;
+    var fprice = 10;
+    var extracoin = 0;
+    var extrapt = 0;
+    var round = 0;
+    var maxcard = 50;
+    var fdraw = Math.floor(Math.random() * 5);
+    var F5 = 0;
+    function toggleCard1() {
+            var McardFlip = document.getElementById('Mcard-flip');
+            var McardTable = document.getElementById('table1');
+            var McardImg = document.getElementById('cardf');
+            
+            if (McardFlip.style.transform === 'rotateY(180deg)') {
+                McardFlip.style.transform = 'rotateY(0deg)';
+                McardTable.style.transform = 'rotateY(0deg)';
+                McardTable.style.display = 'none';
+                McardImg.style.display = 'block';
+                count = count + 1;                
+            } else {
+                McardFlip.style.transform = 'rotateY(180deg)';
+                McardTable.style.transform = 'rotateY(180deg)';
+                McardTable.style.display = 'table';
+                McardImg.style.display = 'none';
+                count = count + 1;
+            }
+        }
+        function toggleCard2() {
+            var LcardFlip = document.getElementById('Lcard-flip');
+            var LcardTable = document.getElementById('table2');
+            var LcardImg = document.getElementById('ecard');
+
+            if (LcardFlip.style.transform === 'rotateY(180deg)') {
+                LcardFlip.style.transform = 'rotateY(0deg)';
+                LcardTable.style.transform = 'rotateY(0deg)';
+                LcardTable.style.display = 'none';
+                LcardImg.style.display = 'block';
+            } else {
+                LcardFlip.style.transform = 'rotateY(0deg)';
+                LcardTable.style.transform = 'rotateY(0deg)';
+                LcardTable.style.display = 'table';
+                LcardImg.style.display = 'none';
+            }
+        }
+        function intro(){
+            var teach = document.getElementById('start');
+            var go = document.getElementById('run');
+            if (count % 2 === 1){
+                teach.style.display = 'none';
+                go.style.display = 'block';
+            }
+            else{
+                teach.style.display = 'block';
+                go.style.display = 'none';
+            }
+        }
+        function openset(){
+            toggleCard1();
+            intro();
+        }
+        function mode1(){
+			var url = "limit.html";
+            url += "?count=" + count;
+            url += "&totalPT=" + totalPT;
+            url += "&collection=" + collection;
+            url += "&coin=" + coin;
+            url += "&edraw=" + edraw;
+            url += "&draw=" + draw;
+            url += "&eface=" + eface;
+            url += "&face=" + face;
+            url += "&press=" + press;
+            url += "&cprice=" + cprice;
+            url += "&pprice=" + pprice;
+            url += "&fprice=" + fprice;
+            url += "&extracoin=" + extracoin;
+            url += "&extrapt=" + extrapt;
+            url += "&round=" + round;
+            url += "&fdraw=" + fdraw;
+            url += "&maxcard=" + maxcard;
+            url += "&F5=" + F5;
+            url += "&player=" + encodeURIComponent(JSON.stringify(player));
+            window.location.href = url;
+		}
+        function mode2(){
+            window.location.href = "../index.html";
+        }
+</script>
+<body class="background">
+    <header></header><br><br>
+    <h1 id="start">資訊&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;遊戲介紹(這是卡背面,按下卡背會顯示正面)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;事件</h1>
+    <h1 id="run" style="display: none;">資訊&ensp;&ensp;遊戲介紹(這是卡正面,按下卡會返回卡背,視為完成一次抽卡)&ensp;&ensp;事件</h1>
+    <div class="cardlocation">
+        <table class="table3">
+            <tbody>
+                <td></td>
+            </tbody>
+        </table>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <div class="Mcard-filp" id="Mcard-flip" onclick="openset()">
+            <img src="mainbcard.png" class="cardf" id="cardf">
+            <table class="table1" id="table1" style="display: none;">
+                <tbody>
+                    <td>
+                        <h2>
+                            card<br><br><br>英文<br><br>中文<br><br>級數
+                        </h2>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+        <div class="Lcard-filp" id="Lcard-flip" onclick="toggleCard2()">
+            <img src="eventbcard.png" class="ecard" id="ecard">
+            <table class="table2" id="table2" style="display: none;">
+                <tbody>
+                    <td>
+                        <h2>
+                            card<br><br><br>英文<br><br>中文<br><br>級數
+                        </h2>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="base">
+            <h2 class="modepick" onclick="mode1()">遊戲開始</h2>
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <h2 class="modepick" onclick="mode2()">回到首頁</h2>
+
+    </div>
+</body>

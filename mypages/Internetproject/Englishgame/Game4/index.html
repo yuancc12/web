@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Choose It</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #container {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #word {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #hint {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    #guess {
+      padding: 6px;
+      font-size: 16px;
+    }
+
+    #message {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    #score {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-image: url("img/Pic1.jpg"); /* 替换为你自己的图像路径 */
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>你猜？你猜？你猜猜猜</h1>
+
+    <p id="word"></p>
+    <p id="hint"></p>
+
+    <label for="guess">输入你的猜测：</label>
+    <input type="text" id="guess">
+    <button onclick="checkGuess()">提交</button>
+    <button onclick="logout()">回到首页</button>
+    <p id="message"></p>
+    <p id="score">积分: 0</p>
+
+    <div class="button-group">
+      <button class="button" onclick="continueGame()" id="continue-btn" style="display: none;">继续</button>
+      <button class="button" onclick="restartGame()" id="restart-btn" style="display: none;">重新开始</button>
+    </div>
+  </div>
+
+  <script>
+    var words = [
+      { word: "apple", hint: "A fruit that is red or green." },
+      { word: "car", hint: "A vehicle with four wheels." },
+      { word: "computer", hint: "An electronic device used for various tasks." },
+      { word: "dog", hint: "A loyal pet that barks." },
+      { word: "book", hint: "Contains written information and stories." },
+      { word: "sun", hint: "A bright celestial object in the sky." }
+    ];
+
+    var currentWord;
+    var guessInput;
+    var message;
+    var continueBtn;
+    var restartBtn;
+    var score;
+
+    function initGame() {
+      currentWord = null;
+      guessInput = document.getElementById("guess");
+      message = document.getElementById("message");
+      continueBtn = document.getElementById("continue-btn");
+      restartBtn = document.getElementById("restart-btn");
+      score = 0;
+
+      getNextWord();
+      guessInput.value = "";
+      message.innerHTML = "";
+      document.getElementById("score").innerHTML = "积分: " + score;
+      guessInput.focus();
+      continueBtn.style.display = "none";
+      restartBtn.style.display = "none";
+    }
+
+    function renderWord() {
+      document.getElementById("word").innerHTML = "********";
+      document.getElementById("hint").innerHTML = "提示: " + currentWord.hint;
+    }
+
+    function checkGuess() {
+      var guess = guessInput.value.toLowerCase();
+      if (guess === currentWord.word) {
+        score += 5;
+        message.innerHTML = "恭喜你，猜对了！答案是 " + currentWord.word;
+        continueBtn.style.display = "inline-block";
+        restartBtn.style.display = "inline-block";
+        guessInput.disabled = true;
+      } else {
+        score -= 1;
+        message.innerHTML = "猜错了，请再试一次。";
+      }
+      document.getElementById("score").innerHTML = "积分: " + score;
+      guessInput.value = "";
+      guessInput.focus();
+    }
+
+    function continueGame() {
+      continueBtn.style.display = "none";
+      restartBtn.style.display = "none";
+      guessInput.disabled = false;
+      getNextWord();
+    }
+
+    function restartGame() {
+      continueBtn.style.display = "none";
+      restartBtn.style.display = "none";
+      guessInput.disabled = false;
+      initGame();
+    }
+
+    function getNextWord() {
+      if (words.length > 0) {
+        var randomIndex = Math.floor(Math.random() * words.length);
+        currentWord = words[randomIndex];
+        words.splice(randomIndex, 1);
+        renderWord();
+      } else {
+        message.innerHTML = "恭喜你完成了所有题目！最终积分: " + score;
+        guessInput.disabled = true;
+      }
+    }
+    function logout(){
+      window.location.href = "../index.html";
+    }
+
+    initGame();
+  </script>
+</body>
+</html>

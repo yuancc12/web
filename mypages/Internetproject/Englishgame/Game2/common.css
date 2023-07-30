@@ -1,0 +1,121 @@
+h1{
+    text-align: center;
+    color:cornsilk;
+}
+h2{
+    font-size: xx-large;
+    user-select: none;
+}
+h3{
+    font-size: x-large;
+    user-select: none;
+}
+p{
+    font-size: x-large;
+    user-select: none;
+}
+.cardlocation{
+    display: flex;
+    justify-content: center;
+    background-color: darkgray;
+}
+header{  
+    background-color:darkgreen;  
+    position: fixed;  
+    left: 0;  
+    right: 0;  
+    top: 0;  
+    height: 50px;  
+    display: flex;  
+    align-items: center;  
+}
+.header{  
+    background-color:darkgreen;  
+    position: fixed;  
+    left: 0;  
+    right: 0;  
+    top: 0;  
+    height: 50px;  
+    display: flex;  
+    align-items: center;  
+}  
+.base{
+    background-color:darkgreen;  
+    position: fixed;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    height: 50px;  
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+}
+.background{
+    background-color:darkgray;
+}
+button{
+    font-size: large;
+}
+.login{
+    position: fixed;
+    top: 12px;
+    right: 10px;
+}
+.back{
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    top: 0;
+    left: 12px;
+    background-color: darkgreen;
+}
+.shop{
+    position: fixed;
+    top: 12px;
+    left: 10px;
+}
+.train{
+    position: fixed;
+    top: 12px;
+    left: 80px;
+}
+.collection{
+    position: fixed;
+    top: 12px;
+    left: 170px;
+}
+.Mcard-filp {
+    height: 380px;
+    width: 290px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+.Lcard-filp {
+    height: 380px;
+    width: 290px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+.card-filp {
+    height: 380px;
+    width: 290px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+}
+.cardf, .ecard, .table2 , .table1, .table3{
+    height: 380px;
+    width: 290px;
+}
+.table1:hover, .cardf:hover, .table2:hover, .table3:hover{
+    transform: scale(1.05);
+}
+td{ 
+    justify-content: center; 
+    vertical-align: top;
+    background-color:cornsilk;
+    border: 5px solid brown;
+    text-align: center;
+}

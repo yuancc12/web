@@ -1,0 +1,81 @@
+#ch1{
+    position: relative;
+    top: 50%;
+    left: 10%;
+    background-color:red;
+    width:500px;
+    height:100px;
+    font-family:"fantasy";
+    font-size:3em;
+}
+#ch2{
+    position: relative;
+    top: 50%;
+    left: 10%;
+    background-color:blue;
+    width: 500px;
+    height:100px;
+    font-family:"fantasy";
+    font-size:3em;
+}
+#ch3{
+    position: relative;
+    top: 50%;
+    left: 10%;
+    background-color:yellow;
+    width: 500px;
+    height:100px;
+    font-family:"fantasy";
+    font-size:3em;
+}
+#ch4{
+    position: relative;
+    top: 50%;
+    left: 10%;
+    background-color:green;
+    width: 500px;
+    height:100px;
+    font-family:"fantasy";
+    font-size:3em;
+}
+.button-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+#title{
+    position: absolute;
+    top: 60px;
+    left: 240px;
+    font-family:"fantasy";
+    font-size:3.5em;
+}
+#question{
+    position: absolute;
+    top: 60px;
+    left: 700px;
+    font-family:"fantasy";
+    font-size:3.5em;
+}
+.div-container{
+    display: flex;
+    flex-wrap: nowrap;
+    font-family:"fantasy";
+    font-size:3em;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+.button-container2 {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button-container2 a {
+    display: block;
+    padding: 20px 20px;
+    font-size: 18px;
+}
