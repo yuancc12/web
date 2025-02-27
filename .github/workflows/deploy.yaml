@@ -28,8 +28,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-static-site  # 確保這個名稱正確
-          path: './build'       # 確保路徑正確
+          path: '.'       # 確保路徑正確
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
