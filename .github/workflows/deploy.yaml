@@ -1,26 +1,20 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -29,19 +23,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Setup Pages
         uses: actions/configure-pages@v2
-
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # 使用 v2 版本
+        uses: actions/upload-artifact@v4
         with:
-          name: static-site  # 設置 artifact 的名稱
-          path: '.'  # 上傳整個倉庫
-
+          name: static-site
+          path: '.'  # 這會上傳整個倉庫
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4  # 不再需要 'path'
         with:
-          artifact_name: static-site  # 設定對應的 artifact 名稱
-          path: '.'  # 部署整個倉庫
+          artifact_name: static-site  # 必須與 upload-artifact 中的名稱一致
