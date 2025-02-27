@@ -41,7 +41,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
         with:
           artifact_name: static-site  # 設定對應的 artifact 名稱
           path: '.'  # 部署整個倉庫
