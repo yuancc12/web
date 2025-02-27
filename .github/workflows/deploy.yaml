@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4  # 使用 v2 版本
         with:
           name: static-site  # 設置 artifact 的名稱
-          path: '.'  # 上傳整個倉庫
+          path: '.index.html'  # 上傳整個倉庫
 
       - name: Deploy to GitHub Pages
         id: deployment
