@@ -2,8 +2,9 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - main
+  workflow_dispatch:  # 允許手動觸發
 
 permissions:
   contents: read
@@ -16,9 +17,6 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,9 +27,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: static-site
-          path: '.'  # 這會上傳整個倉庫
+          path: .
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4  # 不再需要 'path'
+        uses: actions/deploy-pages@v4
         with:
-          artifact_name: static-site  # 必須與 upload-artifact 中的名稱一致
+          artifact_name: static-site
